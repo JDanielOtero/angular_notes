@@ -1,43 +1,64 @@
+// ✅ FUNCIÓN TRADICIONAL
+{
+    // Declaramos una función clásica que recibe dos números y retorna la suma
+    function addNumbers(a: number, b: number) {
+        return a + b;
+    }
 
-// function addNumbers( a:number , b:number) {
-//     return a + b;
-// }
+    // ✅ FUNCIÓN FLECHA (ARROW FUNCTION)
+    const addNumbersArrow = (a: number, b: number): string => {
+        return `${a + b}`;
+    };
+    // Esta función flecha también recibe dos números, pero retorna un string
+    // usando template string para convertir el resultado a texto.
 
-// const addNumbersArow = ( a: number , b: number): string => {
-//     return `${a+b}`; 
-// }
+    // ✅ FUNCIÓN CON PARÁMETROS OPCIONALES Y CON VALOR POR DEFECTO
+    function multiply(firstNumber: number, secondNumber?: number, base: number = 2) {
+        return firstNumber * base;
+    }
+    // - `secondNumber` es opcional (puede o no pasarse).
+    // - `base` tiene un valor por defecto (2). Si no se pasa, usará ese.
 
-// function multiply ( firstNumber: number, secondNumber?: number, base: number = 2 ){
-//     // Solo el primer variable es requerido, el segundo es opcional el tercero tambien pero tiene un default
-//     return firstNumber * base;
-// }
+    // ✅ LLAMADAS A LAS FUNCIONES
+    const result: number = addNumbers(1, 2);          // 3
+    const result2: string = addNumbersArrow(1, 2);    // '3'
+    const multiplyResult: number = multiply(5);       // 5 * 2 = 10
 
-// const result: number = addNumbers(1,2);
-// const result2: string = addNumbersArow(1,2);
-// const multiplyResult: number = multiply(5);
-
-// console.log({result, result2, multiplyResult});
-
-interface Character {
-    name: string;
-    hp:   number;
-    showHp: () => void;
+    // ✅ Imprimir resultados como objeto
+    console.log({ result, result2, multiplyResult });
 }
 
-const healCharacter = ( character: Character, amount: number) => {
-    character.hp += amount
+// ✅ FUNCIONES CON INTERFACES Y OBJETOS
+{
+    // Creamos una interfaz para estructurar el objeto 'Character'
+    interface Character {
+        name: string;
+        hp: number;
+        showHp: () => void; // Método que muestra los puntos de vida
+    }
+
+    // Función que "cura" al personaje sumando puntos de vida (hp)
+    const healCharacter = (character: Character, amount: number) => {
+        character.hp += amount;
+    };
+
+    // Creamos un personaje que implementa la interfaz Character
+    const strider: Character = {
+        name: 'Strider',
+        hp: 50,
+        showHp() {
+            // Usamos 'this' para acceder a las propiedades del objeto desde el método
+            console.log(`Puntos de vida ${this.hp}`);
+        },
+    };
+
+    // Curamos al personaje con 10 puntos extra
+    healCharacter(strider, 10);
+
+    // Mostramos sus puntos de vida actualizados
+    strider.showHp();
 }
 
-const strider: Character = {
-    name:   'Strider',
-    hp:     50,
-    showHp() {
-        console.log(`Puntos de vida ${this.hp}`)
-    },
-}
 
-healCharacter(strider,10);
-
-strider.showHp()
 
 export{};
