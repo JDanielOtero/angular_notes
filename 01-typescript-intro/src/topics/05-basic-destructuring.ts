@@ -15,23 +15,14 @@ interface Details {
 }
 
 const audioPlayer: AudioPlayer = {
-    audioVolume: 90,
-    songDuration: 36,
-    song: "Mess",
-    details: {
-        author: 'Ed Sheeran',
-        year: 2015
+    audioVolume: 90,                    //      ├── audioVolume: 90
+    songDuration: 36,                   //      ├── songDuration: 36
+    song: "Mess",                       //      ├── song: "Mess"
+    details: {                          //      └── details
+        author: 'Ed Sheeran',           //          ├── author: "Ed Sheeran"
+        year: 2015                      //          └── year: 2015
     }
 };
-
-// Este objeto tiene la siguiente estructura:
-// audioPlayer
-// ├── audioVolume: 90
-// ├── songDuration: 36
-// ├── song: "Mess"
-// └── details
-//     ├── author: "Ed Sheeran"
-//     └── year: 2015
 
 // ───────────────────────────────────────────────
 // 🔹 FORMA 1: Desestructuración básica
@@ -101,7 +92,7 @@ const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
 // ───────────────────────────────────────────────
 {
     const personaje3 = dbz[2] || 'No hay personaje';
-    console.log('🧙 FORMA 1 - Personaje 3 (clásico):', personaje3);
+    console.log('🧙 FORMA 1 - Personaje 3 (clásico):', personaje3); // ➡️ 'Trunks'
 }
 
 // ───────────────────────────────────────────────
@@ -109,7 +100,7 @@ const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
 // ───────────────────────────────────────────────
 {
     const [, , trunks]: string[] = dbz;
-    console.log('⚔️ FORMA 2 - Personaje 3:', trunks);
+    console.log('⚔️ FORMA 2 - Personaje 3:', trunks); // ➡️ 'Trunks'
 }
 
 // ───────────────────────────────────────────────
@@ -117,7 +108,7 @@ const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
 // ───────────────────────────────────────────────
 {
     const [, , trunks1 = 'Not found']: string[] = ['Goku', 'Vegeta'];
-    console.log('⚔️ FORMA 3 - Personaje 3:', trunks1); // Not found
+    console.log('⚔️ FORMA 3 - Personaje 3:', trunks1); // ➡️ 'Not found'
 }
 
-export{};
+export {};
