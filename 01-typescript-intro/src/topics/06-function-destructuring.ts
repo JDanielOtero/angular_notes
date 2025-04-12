@@ -1,5 +1,4 @@
 // ✅ Definición de la interfaz Product
-// Cada producto debe tener:
 // - `description`: una cadena que describe el producto
 // - `price`: un número que representa su precio
 interface Product {
