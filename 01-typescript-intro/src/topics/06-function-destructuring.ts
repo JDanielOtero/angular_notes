@@ -26,48 +26,56 @@ interface TaxCalculationOptions {
     products: Product[];
 }
 
+// ───────────────────────────────────────────────
+// 🧾 FORMA 1: Función sin desestructuración
+// ───────────────────────────────────────────────
 {
-   function taxCalculation(options: TaxCalculationOptions): number[] {
+    function taxCalculation(options: TaxCalculationOptions): number[] {
         let total = 0;
-        options.products.forEach( product => {
+        options.products.forEach(product => {
             total += product.price;
         });
         return [total, total * options.tax];
-    } 
+    }
+
+    const shoppingCart = [phone, tablet];
+    const tax = 0.15;
+
+    const result = taxCalculation({ products: shoppingCart, tax });
+
+    console.log('✅ FORMA 1: Sin desestructuración');
+    console.log('Total sin impuestos:', result[0]);
+    console.log('Monto del impuesto:', result[1]);
+    console.log('Total con impuestos:', result[0] + result[1]);
 }
 
-// ✅ Función para calcular el total y el impuesto aplicado
-// Se aplica desestructuración tanto de los parámetros como de los productos
-function taxCalculation({ products, tax }: TaxCalculationOptions): number[] {
-    let total = 0;
-
-    // Sumamos el precio de cada producto usando desestructuración
-    products.forEach(({ price }) => {
-        total += price;
-    });
-
-    // Retornamos un arreglo con el total sin impuesto y el monto del impuesto
-    return [total, total * tax];
-}
-
-// ✅ Carrito de compras y porcentaje de impuesto
-const shoppingCart = [phone, tablet];
-const tax = 0.15;
-
-// ▶️ FORMA 1: Acceso por índices (menos legible)
-const result = taxCalculation({ products: shoppingCart, tax });
-
-console.log('Total sin impuestos:', result[0]);
-console.log('Monto del impuesto:', result[1]);
-// Esta forma es funcional, pero usar índices puede generar confusión y errores
-
-// ▶️ FORMA 2: Desestructuración del resultado (más legible)
+// ───────────────────────────────────────────────
+// 🧾 FORMA 2: Función con desestructuración
+// ───────────────────────────────────────────────
 {
+    // ✅ Definición mejorada con desestructuración en parámetros
+    function taxCalculation({ products, tax }: TaxCalculationOptions): number[] {
+        let total = 0;
+
+        // Desestructuramos directamente el precio de cada producto
+        products.forEach(({ price }) => {
+            total += price;
+        });
+
+        return [total, total * tax];
+    }
+
+    const shoppingCart = [phone, tablet];
+    const tax = 0.15;
+
+    // ✅ Mejor lectura usando desestructuración del resultado
     const [total, taxAmount] = taxCalculation({ products: shoppingCart, tax });
     const totalWithTax = total + taxAmount;
 
+    console.log('\n✅ FORMA 2: Con desestructuración');
     console.log('Total sin impuestos:', total);
-    console.log('Impuesto aplicado:', taxAmount);
+    console.log('Monto del impuesto:', taxAmount);
     console.log('Total con impuestos:', totalWithTax);
 }
+
 export{};
