@@ -19,12 +19,13 @@ interface Character {
 }
 
 // ✅ OBJETO QUE IMPLEMENTA LA INTERFAZ
+// Aquí creamos un objeto que sigue exactamente la estructura de la interfaz Character.
 
 const strider: Character = {
-    name: 'Strider',                    // ├── name: 'Strider'
-    hp: 100,                            // ├── hp: 100
-    skills: ['Bash', 'Counter'],        // ├── skills: ['Bash', 'Counter']
-    hometown: undefined                // └── hometown: undefined inicialmente
+    name: 'Strider',                    // ✔ Cumple con el campo 'name'
+    hp: 100,                            // ✔ Tiene un valor numérico para 'hp'
+    skills: ['Bash', 'Counter'],        // ✔ Lista de habilidades como strings
+    hometown: undefined                // ✔ Aunque es opcional, puede asignarse como undefined
 };
 
 strider.hometown = 'Rivendell';        // ✅ Ahora se asigna la ciudad de origen
