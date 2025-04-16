@@ -5,14 +5,17 @@ console.log(skills); // ➡️ ['Bash', 'Counter', 'Healing']
 
 // ✅ INTERFACES
 // Una interfaz es un contrato que un objeto debe cumplir.
-// Permite definir tipos personalizados con nombres claros y estructura fija, indicando propiedades obligatorias, opcionales, sus tipos, y métodos esperados.
+// Permite definir tipos personalizados con nombres claros y estructura fija,
+// indicando propiedades obligatorias, opcionales, sus tipos, y métodos esperados.
 
 interface Character {
-    name: string;           // ├── name: string
-    hp: number;             // ├── hp: number
-    skills: string[];       // ├── skills: string[]
-    hometown?: string;      // └── hometown?: string (opcional)
+    name: string;           // 🔸 Nombre del personaje (obligatorio)
+    hp: number;             // 🔸 Puntos de vida (hit points), de tipo numérico
+    skills: string[];       // 🔸 Arreglo de habilidades (solo strings)
+
+    hometown?: string;      // 🔸 Ciudad natal (opcional)
     // El signo ? indica que esta propiedad no es obligatoria.
+    // Puede estar presente o no en el objeto que implemente esta interfaz.
 }
 
 // ✅ OBJETO QUE IMPLEMENTA LA INTERFAZ
