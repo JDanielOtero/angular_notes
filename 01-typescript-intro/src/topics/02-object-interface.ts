@@ -4,6 +4,8 @@ console.log(skills); // ➡️ ['Bash', 'Counter', 'Healing']
 // Si intentas hacer: skills.push(123); ❌ TypeScript marcará error
 
 // ✅ INTERFACES
+// Una interfaz es un contrato que un objeto debe cumplir.
+// Permite definir tipos personalizados con nombres claros y estructura fija, indicando propiedades obligatorias, opcionales, sus tipos, y métodos esperados.
 
 interface Character {
     name: string;           // ├── name: string
