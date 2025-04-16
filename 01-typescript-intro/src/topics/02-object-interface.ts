@@ -31,6 +31,7 @@ const strider: Character = {
 strider.hometown = 'Rivendell';        // ✅ Ahora se asigna la ciudad de origen
 
 console.table(strider);  // 🧾 Muestra el objeto como tabla
+
 // Esperado en consola:
 // ┌──────────┬─────────────────────┐
 // │ (index)  │       Value         │
