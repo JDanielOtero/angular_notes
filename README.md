@@ -18,7 +18,7 @@ El objetivo es ir registrando lo que aprendo a medida que avanzo en diferentes c
 
 | Curso / Fuente                                | Estado  | Notas 📓 |
 |-----------------------------------------------|---------|----------|
-| Angular - desde cero (Fernando Herrera)       | 🕐     |          |
+| Angular - desde cero (Fernando H)       | 🕐     |          |
 |                                               | 🔜     | —        |
 |                                               | 🔜     | —        |
 
