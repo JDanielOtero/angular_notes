@@ -23,3 +23,7 @@ El objetivo es ir registrando lo que aprendo a medida que avanzo en diferentes c
 |                                               | 🔜     | —        |
 
 ---
+
+## ✍️ Notas finales
+Este repositorio está en constante evolución.
+Cualquier sugerencia o aporte también será bienvenido
