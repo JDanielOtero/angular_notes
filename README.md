@@ -1,4 +1,4 @@
-# 🅰️ Notas de Angular (  )
+# 🅰️ Notas de Angular
 
 Este repositorio contiene mis apuntes y ejercicios prácticos de Angular 📚.  
 El objetivo es ir registrando lo que aprendo a medida que avanzo en diferentes cursos, prácticas y documentación oficial.
