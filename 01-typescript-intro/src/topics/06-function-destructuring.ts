@@ -51,9 +51,9 @@ interface TaxCalculationOptions {
 // ───────────────────────────────────────────────
 // 🧾 FORMA 2: Función con desestructuración
 // ───────────────────────────────────────────────
-{
+
     // ✅ Definición mejorada con desestructuración en parámetros
-    function taxCalculation({ products, tax }: TaxCalculationOptions): number[] {
+export  function taxCalculation({ products, tax }: TaxCalculationOptions): number[] {
         let total = 0;
 
         // Desestructuramos directamente el precio de cada producto
@@ -75,6 +75,6 @@ interface TaxCalculationOptions {
     console.log('Total sin impuestos:', total);
     console.log('Monto del impuesto:', taxAmount);
     console.log('Total con impuestos:', totalWithTax);
-}
+
 
 export{};
