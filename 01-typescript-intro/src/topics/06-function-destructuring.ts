@@ -1,7 +1,7 @@
 // ✅ Definición de la interfaz Product
 // - `description`: una cadena que describe el producto
 // - `price`: un número que representa su precio
-interface Product {
+export interface Product {
     description: string;
     price: number;
 }
