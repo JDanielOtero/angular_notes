@@ -44,11 +44,16 @@
             public person: Person,
         ){
             // this.person = new Person(realName)
+            // la idea es que no afecte los cambios de la calse Person, el impedimento es que tenemos la dependencia directa en nuestro codigo
+            // La clase es afectada por un cambio que hay en persona. 
         }
     }
 
 
-    const tony = new Person('Tony Startk', 'New York')
+    const tony = new Person('Tony Startk', 'New York'); // Por eso creamos esta variable, se solicita que se envie la informacion de la persona 
     const ironman = new Hero('Ironman',45,'Tony',tony);
     console.log(ironman)
+
+    // Si el Heroe cambia, quiza se pone firstName y LastName, es un cambio que afecta Person, pero ya se sluciona rapidamente, porque hay una referencia al objeto Person, 
+    // Si, hay dos instancias pero es mejor
 
