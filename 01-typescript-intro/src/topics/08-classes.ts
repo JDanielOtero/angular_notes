@@ -32,7 +32,11 @@
     //     }
     // }
 
-    // OTRA FORMA DE HACELO, LA CLASE HERO SERA AFECTADA POR SI LA CALSE PERSONA CAMBIA 
+    /*
+    * Otra forma de hacerlo es usando composición en lugar de herencia.
+    * Esto permite que la clase Hero tenga una instancia de Person, en lugar de extenderla.
+    * De esta manera, los cambios en la clase Person no afectan directamente a Hero.
+    */
     export class Hero {
 
         // public person: Person;
