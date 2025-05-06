@@ -45,7 +45,8 @@
             public alterEgo: string,
             public age: number,
             public realName: string,
-            public person: Person,
+            public person: Person, 
+            // Composición: Hero tiene una instancia de Person como propiedad
         ){
             // this.person = new Person(realName)
             // la idea es que no afecte los cambios de la calse Person, el impedimento es que tenemos la dependencia directa en nuestro codigo
