@@ -40,7 +40,7 @@
     export class Hero {
 
         // public person: Person;
-
+        
         constructor(
             public alterEgo: string,
             public age: number,
