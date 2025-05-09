@@ -39,7 +39,7 @@
     */
     export class Hero {
 
-        // public person: Person;
+        // public person: Person; 
         
         constructor( 
             public alterEgo: string,
