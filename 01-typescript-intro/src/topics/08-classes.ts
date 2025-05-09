@@ -41,7 +41,7 @@
 
         // public person: Person;
         
-        constructor(
+        constructor( 
             public alterEgo: string,
             public age: number,
             public realName: string,
