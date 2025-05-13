@@ -37,7 +37,7 @@
     * Esto permite que la clase Hero tenga una instancia de Person, en lugar de extenderla.
     * De esta manera, los cambios en la clase Person no afectan directamente a Hero.
     */
-    export class Hero {
+    export class Hero {  
 
         // public person: Person; 
         
