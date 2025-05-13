@@ -43,7 +43,7 @@
         
         constructor( 
             public alterEgo: string,
-            public age: number,
+            public age: number, 
             public realName: string,
             public person: Person, 
             // Composición: Hero tiene una instancia de Person como propiedad
