@@ -3,7 +3,7 @@
 Este repositorio contiene mis apuntes y ejercicios prácticos de Angular 📚.  
 El objetivo es ir registrando lo que aprendo a medida que avanzo en diferentes cursos, prácticas y documentación oficial.
   
-## 🔥 ¿Por qué este repositorio?
+## 🔥 ¿Por qué este repositorio?    
 
 - Consolidar lo aprendido de forma ordenada y práctica.
 - Tener ejemplos claros y reutilizables.
