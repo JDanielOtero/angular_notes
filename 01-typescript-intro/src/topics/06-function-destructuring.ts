@@ -1,6 +1,7 @@
 // ✅ Definición de la interfaz Product
 // - `description`: una cadena que describe el producto
 // - `price`: un número que representa su precio
+// Interfaz que describe un producto individual
 export interface Product {
     description: string;
     price: number;
@@ -20,6 +21,7 @@ const tablet: Product = {
 // ✅ Interfaz para los parámetros que usará la función de cálculo de impuestos
 // - `tax`: un número decimal que representa el porcentaje de impuesto (por ejemplo, 0.15 para 15%)
 // - `products`: un arreglo de productos sobre los cuales se calculará el impuesto
+// Interfaz para los parámetros que se pasan a la función
 interface TaxCalculationOptions {
     tax: number;
     products: Product[];
