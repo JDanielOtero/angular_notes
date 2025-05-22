@@ -13,3 +13,6 @@ const app = document.querySelector<HTMLDivElement>('#app')!;
 app.innerHTML = 'Hola Mundo';
 
 console.log('Hola mundo :)');
+
+// Para correr el Proyecto, Corre en la terminal npm run dev
+// Se abrira en http://localhost:5173
