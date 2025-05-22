@@ -1,60 +1,83 @@
-// ✅ FUNCIÓN TRADICIONAL
+// ✅ FUNCIONES EN TYPESCRIPT
+
 {
-    // Declaramos una función clásica que recibe dos números y retorna la suma
-    function addNumbers(a: number, b: number) {
-        return a + b;                            // ➡️ Retorna 3 si a = 1, b = 2
-    }
+    // ✅ FUNCIÓN TRADICIONAL
+        // Recibe dos números y retorna su suma como número.
+        function addNumbers(a: number, b: number): number {
+            return a + b;                                       // ➡️ Retorna 3 si a = 1, b = 2
+        }
 
     // ✅ FUNCIÓN FLECHA (ARROW FUNCTION)
-    const addNumbersArrow = (a: number, b: number): string => {
-        return `${a + b}`;                       // ➡️ Retorna '3' (como string)
-    };
-    // Usa template string para convertir el número a texto
+        // Realiza la misma suma, pero retorna el resultado como string.
+        // Usa template string para convertir el número a texto
+        const addNumbersArrow = (a: number, b: number): string => {
+            return `${a + b}`;              
+        };
 
-    // ✅ FUNCIÓN CON PARÁMETROS OPCIONALES Y VALOR POR DEFECTO
-    function multiply(firstNumber: number, secondNumber?: number, base: number = 2) {
-        return firstNumber * base;               // ➡️ Si se llama como multiply(5), retorna 10
-    }
-    // - secondNumber es opcional
-    // - base = 2 si no se pasa otro valor
+    // ✅ FUNCIÓN CON PARÁMETROS OPCIONALES Y VALORES POR DEFECTO
+        // - 'secondNumber' es opcional
+        // - 'base' tiene un valor por defecto (2)
+        function multiply(firstNumber: number, secondNumber?: number, base: number = 2): number {
+            return firstNumber * base;
+        }
 
     // ✅ LLAMADAS A LAS FUNCIONES
-    const result: number = addNumbers(1, 2);          // ➡️ 3
-    const result2: string = addNumbersArrow(1, 2);    // ➡️ '3'
-    const multiplyResult: number = multiply(5);       // ➡️ 10
+        const result: number = addNumbers(1, 2);           // ➡️ 3 (número)
+        const result2: string = addNumbersArrow(1, 2);     // ➡️ '3' (string)
+        const multiplyResult1: number = multiply(5);       // ➡️ 10 (usa base=2)
+        const multiplyResult2: number = multiply(3, 9, 4); // ➡️ 12 (3 * 4)
 
-    // ✅ Imprimir resultados como objeto
-    console.log({ result, result2, multiplyResult }); // ➡️ { result: 3, result2: '3', multiplyResult: 10 }
+    // ✅ Imprimir resultados en formato tabla para mejor visualización
+        console.table({
+            result,
+            result2,
+            multiplyResult1,
+            multiplyResult2,
+        });
+
+    // También puedes imprimirlos individualmente si deseas ver más detalle
+        console.log('Suma tradicional (num):', result);
+        console.log('Suma flecha (string):', result2);
+        console.log('Multiplicación con base por defecto:', multiplyResult1);
+        console.log('Multiplicación con base 4:', multiplyResult2);
 }
 
 // ✅ FUNCIONES CON INTERFACES Y OBJETOS
+
 {
-    // Creamos una interfaz para estructurar el objeto 'Character'
-    interface Character {
-        name: string;               // ├── name: string
-        hp: number;                 // ├── hp: number
-        showHp: () => void;         // └── showHp(): void
-    }
+    // 🔹 Definimos una interfaz para personajes del juego
+        interface Character {
+            name: string;             // Nombre del personaje
+            hp: number;               // Puntos de vida (Hit Points)
+            showHp: () => void;       // Método para mostrar los puntos de vida actuales
+        }
 
-    // Función que "cura" al personaje sumando puntos de vida (hp)
-    const healCharacter = (character: Character, amount: number) => {
-        character.hp += amount;     // ➕ Aumenta los puntos de vida (hp) del personaje
-    };
+    // 🔧 Función que "cura" al personaje aumentando sus puntos de vida
+        const healCharacter = (character: Character, amount: number): void => {
+            character.hp += amount;
+            console.log(`${character.name} ha sido curado por ${amount} puntos.`);
+        };
 
-    // Creamos un personaje que implementa la interfaz Character
-    const strider: Character = {
-        name: 'Strider',            // ├── name: 'Strider'
-        hp: 50,                     // ├── hp: 50 (inicialmente)
-        showHp() {                  // └── showHp(): imprime la vida actual
-            console.log(`Puntos de vida ${this.hp}`); // ➡️ Se espera "Puntos de vida 60"
-        },
-    };
+    // 🧍 Creamos un personaje que cumple con la interfaz Character
+        const strider: Character = {
+            name: 'Strider',
+            hp: 50,
+            showHp() {
+            console.log(`❤️ ${this.name} tiene ${this.hp} puntos de vida.`);
+            },
+        };
 
-    // Curamos al personaje con 10 puntos extra
-    healCharacter(strider, 10);     // ➡️ hp ahora es 60
+    // ▶️ Llamadas de prueba
 
-    // Mostramos sus puntos de vida actualizados
-    strider.showHp();               // ➡️ "Puntos de vida 60"
+        // Mostrar vida inicial
+        strider.showHp(); // ➡️ ❤️ Strider tiene 50 puntos de vida.
+
+        // Curamos al personaje con 10 puntos
+        healCharacter(strider, 10); // ➡️ Strider ha sido curado por 10 puntos.
+
+        // Mostrar vida después de curar
+        strider.showHp(); // ➡️ ❤️ Strider tiene 60 puntos de vida.
 }
+
 
 export {};
