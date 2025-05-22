@@ -1,32 +1,34 @@
 // 🟩 DESESTRUCTURACIÓN DE OBJETOS (OBJECT DESTRUCTURING)
 // Permite extraer propiedades de un objeto de forma concisa y directa.
+// 🔸 En vez de acceder a propiedades con obj.prop, puedes hacer: const { prop } = obj;
 
 // 🎵 1. DEFINICIÓN DEL OBJETO
-interface AudioPlayer {
-    audioVolume: number;
-    songDuration: number;
-    song: string;
-    details: Details;
-}
-
-interface Details {
-    author: string;
-    year: number;
-}
-
-const audioPlayer: AudioPlayer = {
-    audioVolume: 90,                    //      ├── audioVolume: 90
-    songDuration: 36,                   //      ├── songDuration: 36
-    song: "Mess",                       //      ├── song: "Mess"
-    details: {                          //      └── details
-        author: 'Ed Sheeran',           //          ├── author: "Ed Sheeran"
-        year: 2015                      //          └── year: 2015
+    interface AudioPlayer {
+        audioVolume: number;
+        songDuration: number;
+        song: string;
+        details: Details;
     }
-};
+
+    interface Details {
+        author: string;
+        year: number;
+    }
+
+    const audioPlayer: AudioPlayer = {
+        audioVolume: 90,                    //      ├── audioVolume: 90
+        songDuration: 36,                   //      ├── songDuration: 36
+        song: "Mess",                       //      ├── song: "Mess"
+        details: {                          //      └── details
+            author: 'Ed Sheeran',           //          ├── author: "Ed Sheeran"
+            year: 2015                      //          └── year: 2015
+        }
+    };
 
 // ───────────────────────────────────────────────
 // 🔹 FORMA 1: Desestructuración básica
 // ───────────────────────────────────────────────
+// ✅ Saca una sola propiedad del objeto y la guarda como variable.
 {
     const { song } = audioPlayer;
     console.log('🎧 FORMA 1 - Song:', song); // ➡️ 'Mess'
@@ -40,6 +42,7 @@ const audioPlayer: AudioPlayer = {
 // ───────────────────────────────────────────────
 // 🔹 FORMA 2: Desestructuración con renombramiento
 // ───────────────────────────────────────────────
+// ✅ Puedes cambiar el nombre de la variable mientras la desestructuras.
 {
     const { song: anotherSong, songDuration: duration } = audioPlayer;
     console.log('🎵 FORMA 2 - Song (renombrada):', anotherSong); // ➡️ 'Mess'
@@ -58,9 +61,11 @@ const audioPlayer: AudioPlayer = {
 // ───────────────────────────────────────────────
 // 🔹 FORMA 4: Desestructuración anidada en una línea
 // ───────────────────────────────────────────────
+// ✅ Puedes extraer propiedades anidadas directamente y también renombrarlas al vuelo.
 {
-    const { details: { author: autor } } = audioPlayer;
+    const { details: { author: autor, year } } = audioPlayer;
     console.log('🧾 FORMA 4 - Author (renombrado):', autor); // ➡️ 'Ed Sheeran'
+    console.log('🧾 FORMA 4 - Ano (renombrado):', year);  // 2015
 }
 
 // ───────────────────────────────────────────────
@@ -98,6 +103,7 @@ const dbz: string[] = ['Goku', 'Vegeta', 'Trunks'];
 // ───────────────────────────────────────────────
 // 🔹 FORMA 2: Desestructuración por posición
 // ───────────────────────────────────────────────
+// ✅ Extrae directamente el tercer elemento, ignorando los anteriores con comas vacías.
 {
     const [, , trunks]: string[] = dbz;
     console.log('⚔️ FORMA 2 - Personaje 3:', trunks); // ➡️ 'Trunks'

@@ -1,43 +1,55 @@
 // ✅ INTERFACES ANIDADAS EN TYPESCRIPT
 
-// Definimos una interfaz para representar la dirección
-interface Address {
-    street: string;     // ├── street: string
-    country: string;    // ├── country: string
-    city: string;       // └── city: string
-}
+// 🔸 Interfaz para representar una dirección postal
+    interface Address {
+        street: string;   // Calle
+        country: string;  // País
+        city: string;     // Ciudad
+    }
 
-// Interfaz principal que representa un superhéroe
-interface SuperHero {
-    name: string;               // ├── name: string
-    age: number;                // ├── age: number
-    address: Address;           // ├── address: Address
-    showAddress: () => string;  // └── showAddress(): string
-}
+    // 🔸 Interfaz principal que representa un superhéroe
+    interface SuperHero {
+        name: string;               // Nombre del héroe
+        age: number;                // Edad
+        address: Address;           // Dirección (usa otra interfaz como tipo)
+        showAddress: () => string;  // Método que devuelve dirección formateada
+    }
 
 
 // ✅ OBJETO QUE IMPLEMENTA LAS INTERFACES
 
-const superHeroe: SuperHero = {
-    name: 'Spiderman',          // ├── name: "Spiderman"
-    age: 30,                    // ├── age: 30
-    address: {                  // ├── address
-        street: 'Main St',      // │   ├── street: "Main St"
-        country: 'USA',         // │   ├── country: "USA"
-        city: 'NY'              // │   └── city: "NY"
-    },
-    showAddress() {             // └── showAddress()
-        // Usamos `this` para acceder a las propiedades del propio objeto
-        // Devolvemos una cadena con el nombre, ciudad y país
-        return this.name + ', ' + this.address.city + ', ' + this.address.country;
-    }
-};
+    const superHeroe: SuperHero = {
+        name: 'Spiderman',
+        age: 30,
+        address: {
+            street: 'Main St',
+            country: 'USA',
+            city: 'New York',
+        },
+        showAddress() {            
+            // Usamos `this` para acceder a las propiedades del propio objeto
+            // Devolvemos una cadena con el nombre, ciudad y país
+            return this.name + ', ' + this.address.city + ', ' + this.address.country;
+        }
+    };
 
 
 // ✅ LLAMADA AL MÉTODO DEL OBJETO
 
-const address = superHeroe.showAddress();   // Llama al método y guarda: "Spiderman, NY, USA"
+    // 🔹 Ejecutamos el método del objeto
+    const addressInfo = superHeroe.showAddress();
 
-console.log(address);  // ➡️ Muestra: Spiderman, NY, USA
+    // 🧾 Imprimimos la información de forma clara
+    console.log('Dirección completa del héroe:');
+    console.log(addressInfo); // ➡️ Spiderman lives in New York, USA
+
+    // 🧾 Mostramos el objeto como tabla
+    console.table(superHeroe);
+
+    // 🔍 Accedemos también a propiedades individuales
+    console.log('País:', superHeroe.address.country);     // ➡️ USA
+    console.log('Ciudad:', superHeroe.address.city);      // ➡️ New York
+    console.log('Calle:', superHeroe.address.street);     // ➡️ Main St
+
 
 export {};
