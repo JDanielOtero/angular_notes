@@ -18,41 +18,74 @@
 
 // ✅ INTERFACES EN TYPESCRIPT
 
-// Una interfaz es un contrato que un objeto debe cumplir.
-// Permite definir tipos personalizados con nombres claros y estructura fija,
-// indicando propiedades obligatorias, opcionales, sus tipos, y métodos esperados.
+    // Una interfaz es un contrato que un objeto debe cumplir.
+    // Permite definir tipos personalizados con nombres claros y estructura fija,
+    // indicando propiedades obligatorias, opcionales, sus tipos, y métodos esperados.
 
-interface Character {
-    name: string;           // 🔸 Nombre del personaje (obligatorio)
-    hp: number;             // 🔸 Puntos de vida (hit points), de tipo numérico
-    skills: string[];       // 🔸 Arreglo de habilidades (solo strings)
-    hometown?: string;      // 🔸 Ciudad natal (opcional)
-    // El signo ? indica que esta propiedad no es obligatoria.
-    // Puede estar presente o no en el objeto que implemente esta interfaz.
-}
+    interface Character {
+        name: string;           // 🔸 Nombre del personaje (obligatorio)
+        hp: number;             // 🔸 Puntos de vida (hit points), de tipo numérico
+        skills: string[];       // 🔸 Arreglo de habilidades (solo strings)
+        hometown?: string;      // 🔸 Ciudad natal (opcional)
+        // El signo ? indica que esta propiedad no es obligatoria.
+        // Puede estar presente o no en el objeto que implemente esta interfaz.
+    }
 
-// ✅ OBJETO QUE IMPLEMENTA LA INTERFAZ
-// Aquí creamos un objeto que sigue exactamente la estructura de la interfaz Character.
+    // ✅ Creamos un objeto que cumple con la interfaz Character
+    const character1: Character = {
+        name: 'Dotero',
+        hp: 100,
+        skills: ['Slash', 'Fireball', 'Heal']
+    };
 
-const strider: Character = {
-    name: 'Strider',                    // ✔ Cumple con el campo 'name'
-    hp: 100,                            // ✔ Tiene un valor numérico para 'hp'
-    skills: ['Bash', 'Counter'],        // ✔ Lista de habilidades como strings
-    hometown: undefined                // ✔ Aunque es opcional, puede asignarse como undefined
-};
+    console.log('Personaje 1:', character1);
 
-strider.hometown = 'Rivendell';        // ✅ Ahora se asigna la ciudad de origen
+    // ✅ También podemos incluir la propiedad opcional
+        const character2: Character = {
+        name: 'Invoker',
+        hp: 120,
+        skills: ['Quas', 'Wex', 'Exort'],
+        hometown: 'Carl’s Peak'
+    };
 
-console.table(strider);  // 🧾 Muestra el objeto como tabla
+    console.log('Personaje 2:', character2);
 
-// Esperado en consola:
-// ┌──────────┬─────────────────────┐
-// │ (index)  │       Value         │
-// ├──────────┼─────────────────────┤
-// │  name    │    'Strider'        │
-// │  hp      │        100          │
-// │  skills  │  ['Bash', 'Counter']│
-// │ hometown │   'Rivendell'       │
-// └──────────┴─────────────────────┘
+    // ❌ Ejemplo de error si falta una propiedad obligatoria:
+    // const brokenCharacter: Character = {
+    //   name: 'Error',
+    //   skills: ['Oops']
+    // };
+    // ❗ Error: Property 'hp' is missing in type ...
+
+
+    // ✅ OBJETO QUE IMPLEMENTA LA INTERFAZ
+    // Aquí creamos un objeto que sigue exactamente la estructura de la interfaz Character.
+
+    const strider: Character = {
+        name: 'Strider',                    // ✔ Cumple con el campo 'name'
+        hp: 100,                            // ✔ Tiene un valor numérico para 'hp'
+        skills: ['Bash', 'Counter'],        // ✔ Lista de habilidades como strings
+        hometown: undefined                // ✔ Aunque es opcional, puede asignarse como undefined
+    };
+
+    // ✅ Posteriormente, asignamos un valor a la propiedad opcional
+    strider.hometown = 'Rivendell';
+
+    // 🧾 Mostrar el objeto en consola como tabla
+    console.table(strider);
+
+    // Esperado en consola:
+    // ┌──────────┬─────────────────────┐
+    // │ (index)  │       Value         │
+    // ├──────────┼─────────────────────┤
+    // │  name    │    'Strider'        │
+    // │  hp      │        100          │
+    // │  skills  │  ['Bash', 'Counter']│
+    // │ hometown │   'Rivendell'       │
+    // └──────────┴─────────────────────┘
+
+    // 📌 También podemos mostrar valores individuales:
+    console.log('Nombre del personaje:', strider.name);
+    console.log('Habilidades:', strider.skills.join(', '));
 
 export {};
