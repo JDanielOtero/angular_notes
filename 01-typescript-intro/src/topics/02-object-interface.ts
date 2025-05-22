@@ -1,9 +1,23 @@
-// ✅ ARREGLOS TIPADOS
-const skills: string[] = ['Bash', 'Counter', 'Healing'];  // 🔹 Arreglo tipado solo para strings
-console.log(skills); // ➡️ ['Bash', 'Counter', 'Healing']
-// Si intentas hacer: skills.push(123); ❌ TypeScript marcará error
+// ✅ ARREGLOS TIPADOS EN TYPESCRIPT
 
-// ✅ INTERFACES
+    // Declaramos un arreglo que solo puede contener cadenas (strings)
+    const skills: string[] = ['Bash', 'Counter', 'Healing'];
+
+    // 📤 Mostramos el arreglo completo
+    console.log('Habilidades iniciales:', skills);
+
+    // ❌ Esto generaría un error de tipo:
+    // skills.push(123); // Error: Argument of type 'number' is not assignable to parameter of type 'string'
+
+    // ✅ Agregamos una nueva habilidad (string válida)
+    skills.push('Invisibility');
+
+    // 🔍 Verificamos el contenido actualizado
+    console.log('Habilidades actualizadas:', skills);
+
+
+// ✅ INTERFACES EN TYPESCRIPT
+
 // Una interfaz es un contrato que un objeto debe cumplir.
 // Permite definir tipos personalizados con nombres claros y estructura fija,
 // indicando propiedades obligatorias, opcionales, sus tipos, y métodos esperados.
@@ -12,7 +26,6 @@ interface Character {
     name: string;           // 🔸 Nombre del personaje (obligatorio)
     hp: number;             // 🔸 Puntos de vida (hit points), de tipo numérico
     skills: string[];       // 🔸 Arreglo de habilidades (solo strings)
-
     hometown?: string;      // 🔸 Ciudad natal (opcional)
     // El signo ? indica que esta propiedad no es obligatoria.
     // Puede estar presente o no en el objeto que implemente esta interfaz.

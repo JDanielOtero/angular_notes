@@ -1,27 +1,26 @@
-// 🧠 BÁSICOS EN TYPESCRIPT 
-
-// TypeScript permite declarar variables con tipos específicos:
+// 🧠 TIPOS BÁSICOS EN TYPESCRIPT
 
 // ✅ STRING
-    const name: string = 'Dotero';
-    // La variable 'name' solo puede contener textos (cadenas de caracteres).
-    // Si intentas asignarle un número, TypeScript marcaría un error. name = 1234
+const name: string = 'Dotero';
+// 'name' solo puede almacenar cadenas de texto.
+// Ejemplo inválido: name = 1234 ❌ (causaría un error de tipo)
 
 // ✅ UNION TYPE (number | string)
-    let hpPoints: number | string = 95;
-    // 'hpPoints' puede ser un número o una cadena (string).
-    // Esto es útil en casos donde un valor puede cambiar de tipo, por ejemplo, dependiendo del estado del juego.
-    hpPoints = 'FULL';
-    // Eesto es válido porque se declaró como `number | string`.
+let hpPoints: number | string = 95;
+// 'hpPoints' puede ser un número o una cadena.
+// Esto permite flexibilidad, por ejemplo, para mostrar un estado textual:
+hpPoints = 'FULL'; // ✅ válido por ser un tipo permitido
 
 // ✅ BOOLEAN
-    const isAlive: boolean = true;
-    // 'isAlive' es de tipo booleano, solo puede ser true o false.
+const isAlive: boolean = true;
+// 'isAlive' solo puede ser true o false
 
+// 📤 Imprimir los valores
 console.log({
-    name,
-    hpPoints,
-    isAlive
+  name,
+  hpPoints,
+  isAlive,
 });
 
-export{};
+// 👇 Exportación para evitar errores en entornos de módulos
+export {};
