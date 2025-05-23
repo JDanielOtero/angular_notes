@@ -15,6 +15,8 @@
 }
 
 // Genericos
+// Un genérico es una forma de declarar funciones, clases o interfaces que no están atadas a un tipo específico, sino que aceptan un tipo como parámetro.
+// Esto permite que el tipo sea determinado en el momento de uso, manteniendo la seguridad de tipos sin necesidad de usar any.
 
 function whatsMyType<T>(argument: T): T {
     return argument;
