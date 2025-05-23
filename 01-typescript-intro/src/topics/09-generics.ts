@@ -1,34 +1,28 @@
-// export function whatsMyType( argument:any ) {
-//     // La idea es evitar usar any, es como trabajar en javascript
 
-//     return argument;
-// }
+// Aunque TypeScript no lo advierte en tiempo de compilación, esto puede romperse en tiempo de ejecución, porque no sabe qué tipo es argument.
+{
+    function whatsMyType(argument: any) {
+        return argument;
+    }
 
-// const amIString = whatsMyType('Hola Mundo');
-// const amINumber = whatsMyType(100);
-// const amIArray = whatsMyType([1,2,3,4,5]);
+    const amIString = whatsMyType('Hola Mundo');
+    const amINumber = whatsMyType(100);
+    const amIArray  = whatsMyType([1,2,3,4,5]);
 
-// console.log(amIString.split(' '));
-// console.log(amINumber.split(' '));
-// console.log(amIArray.split(' '));
+    console.log(amIString.split(' '));  // ✔️ funciona
+    console.log(amINumber.split(' ')); // ⚠️ error en tiempo de ejecución
+    console.log(amIArray.split(' '));  // ⚠️ error en tiempo de ejecución
+}
 
+// Genericos
 
-// Como hacer que la funcion dependa del tipo de dato que se le da, se dan genericos 
-
-
-export function whatsMyType<T>( argument:T ): T {
-    // La idea es evitar usar any, es como trabajar en javascript
-
+function whatsMyType<T>(argument: T): T {
     return argument;
 }
 
-const amIString = whatsMyType<string>('Hola Mundo');
-const amINumber = whatsMyType<number>(100);
-const amIArray = whatsMyType<number[]>([1,2,3,4,5]);
-//Es lo mismo
-// const amIString = whatsMyType('Hola Mundo');
-// const amINumber = whatsMyType(100);
-// const amIArray = whatsMyType([1,2,3,4,5]);
+const amIString = whatsMyType<string>('Hola Mundo');        // string
+const amINumber = whatsMyType<number>(100);                 // number
+const amIArray  = whatsMyType<number[]>([1, 2, 3, 4, 5]);   // number[]
 
 console.log(amIString.split(' '));
 console.log(amINumber.toFixed());
