@@ -1,6 +1,6 @@
 
 // Aunque TypeScript no lo advierte en tiempo de compilación, esto puede romperse en tiempo de ejecución, porque no sabe qué tipo es argument.
-{
+{ 
     function whatsMyType(argument: any) {
         return argument;
     }
